@@ -151,6 +151,12 @@ class ProjectController extends Controller
         return redirect()->route('admin.types.show', compact('type'));
     }
 
+    public function clearTechnologies(Project $project)
+    {
+        $project->technologies()->sync([]);
+        return redirect()->route('admin.technologies.index');
+    }
+
     /**
      * Display a listing of trashed resources.
      *

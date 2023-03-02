@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\DashboardController as DashboardController;
 use App\Http\Controllers\Admin\ProjectController as AdminProjectController;
 use App\Http\Controllers\Admin\TypeController as AdminTypeController;
+use App\Http\Controllers\Admin\TechnologyController as AdminTechnologyController;
 use App\Http\Controllers\Guest\ProjectController as GuestProjectController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -29,7 +30,9 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
     Route::delete('/projects/{project}/force-delete', [AdminProjectController::class, 'forceDelete'])->name('projects.force-delete')->withTrashed();
     Route::resource('/projects', AdminProjectController::class);
     Route::delete('/projects/{project}/clear-type', [AdminProjectController::class, 'clearType'])->name('projects.clearType');
+    Route::delete('/projects/{project}/clear-technologies', [AdminTechnologyController::class, 'clearTechnologies'])->name('projects.clearTechnologies');
     Route::resource('/types', AdminTypeController::class);
+    Route::resource('/technologies', AdminTechnologyController::class);
 });
 
 

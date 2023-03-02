@@ -11,7 +11,7 @@ use Illuminate\Validation\Rule;
 class TypeController extends Controller
 {
     protected $customMessages = [
-        'name.required' => 'Title field cannot be empty',
+        'name.required' => 'Type field cannot be empty',
     ];
 
     public function validationRules()
